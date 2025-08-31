@@ -1,0 +1,125 @@
+font pango:monospace 8.000000
+floating_modifier Mod1
+default_border pixel 2
+default_floating_border normal 2
+hide_edge_borders both
+focus_wrapping yes
+focus_follows_mouse yes
+focus_on_window_activation smart
+mouse_warping output
+workspace_layout default
+workspace_auto_back_and_forth no
+client.focused #4c7899 #285577 #ffffff #2e9ef4 #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50 #5f676a
+client.unfocused #333333 #222222 #888888 #292d2e #222222
+client.urgent #2f343a #900000 #ffffff #900000 #900000
+client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
+client.background #ffffff
+
+bindsym Mod4+0 workspace 10
+bindsym Mod4+1 workspace 1
+bindsym Mod4+2 workspace 2
+bindsym Mod4+3 workspace 3
+bindsym Mod4+4 workspace 4
+bindsym Mod4+5 workspace 5
+bindsym Mod4+6 workspace 6
+bindsym Mod4+7 workspace 7
+bindsym Mod4+8 workspace 8
+bindsym Mod4+9 workspace 9
+bindsym Mod4+Down focus down
+bindsym Mod4+Left focus left
+bindsym Mod4+Mod1+Shift+h move workspace to output left
+bindsym Mod4+Mod1+Shift+j move workspace to output down
+bindsym Mod4+Mod1+Shift+k move workspace to output up
+bindsym Mod4+Mod1+Shift+l move workspace to output right
+bindsym Mod4+Mod1+h exec systemctl hibernate
+bindsym Mod4+Mod1+l exec loginctl lock-session
+bindsym Mod4+Mod1+s exec systemctl suspend-then-hibernate
+bindsym Mod4+Return exec --no-startup-id kitty
+bindsym Mod4+Right focus right
+bindsym Mod4+Shift+0 move container to workspace 10
+bindsym Mod4+Shift+1 move container to workspace 1
+bindsym Mod4+Shift+2 move container to workspace 2
+bindsym Mod4+Shift+3 move container to workspace 3
+bindsym Mod4+Shift+4 move container to workspace 4
+bindsym Mod4+Shift+5 move container to workspace 5
+bindsym Mod4+Shift+6 move container to workspace 6
+bindsym Mod4+Shift+7 move container to workspace 7
+bindsym Mod4+Shift+8 move container to workspace 8
+bindsym Mod4+Shift+9 move container to workspace 9
+bindsym Mod4+Shift+Down move down
+bindsym Mod4+Shift+Left move left
+bindsym Mod4+Shift+Right move right
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+c reload
+bindsym Mod4+Shift+e exec killall -9 i3
+bindsym Mod4+Shift+f fullscreen toggle
+bindsym Mod4+Shift+h move left
+bindsym Mod4+Shift+j move down
+bindsym Mod4+Shift+k move up
+bindsym Mod4+Shift+l move right
+bindsym Mod4+Shift+minus move scratchpad
+bindsym Mod4+Shift+r restart
+bindsym Mod4+Shift+s split v
+bindsym Mod4+Shift+space floating toggle
+bindsym Mod4+Up focus up
+bindsym Mod4+apostrophe layout tabbed
+bindsym Mod4+c focus child
+bindsym Mod4+d exec --no-startup-id rofi -show drun -show-icons
+bindsym Mod4+f exec --no-startup-id floorp
+bindsym Mod4+h focus left
+bindsym Mod4+j focus down
+bindsym Mod4+k focus up
+bindsym Mod4+l focus right
+bindsym Mod4+minus scratchpad show
+bindsym Mod4+p focus parent
+bindsym Mod4+q kill
+bindsym Mod4+s exec --no-startup-id spotify
+bindsym Mod4+semicolon layout toggle split
+bindsym Mod4+slash layout stacking
+bindsym Mod4+space exec --no-startup-id rofi -show drun -show-icons
+bindsym Mod4+t sticky toggle
+bindsym Mod4+v split h
+bindsym Print exec --no-startup-id /nix/store/fcjcgbsqjcc4szxxdgxpwhrrrsipcyby-maim-5.8.0/bin/maim -su \
+  | /nix/store/3pv2bqif7fwn64nlvk4g28nisydvbaqi-xclip-0.13/bin/xclip -selection clipboard -t image/png
+
+bindsym Shift+Print exec --no-startup-id /nix/store/fcjcgbsqjcc4szxxdgxpwhrrrsipcyby-maim-5.8.0/bin/maim -su \
+  | /nix/store/3pv2bqif7fwn64nlvk4g28nisydvbaqi-xclip-0.13/bin/xclip -selection clipboard -t image/png
+
+bindsym XF86AudioLowerVolume exec --no-startup-id /nix/store/z2hyq3gnzqxwxyc0zddlmk0vjjdbjdix-pulseaudio-17.0/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id /nix/store/z2hyq3gnzqxwxyc0zddlmk0vjjdbjdix-pulseaudio-17.0/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioNext exec --no-startup-id /nix/store/zdiwrx8wyznl14qac8py1k4m6lms5gq0-playerctl-2.4.1/bin/playerctl next
+bindsym XF86AudioPlay exec --no-startup-id /nix/store/zdiwrx8wyznl14qac8py1k4m6lms5gq0-playerctl-2.4.1/bin/playerctl play-pause
+bindsym XF86AudioPrev exec --no-startup-id /nix/store/zdiwrx8wyznl14qac8py1k4m6lms5gq0-playerctl-2.4.1/bin/playerctl previous
+bindsym XF86AudioRaiseVolume exec --no-startup-id /nix/store/z2hyq3gnzqxwxyc0zddlmk0vjjdbjdix-pulseaudio-17.0/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id /nix/store/32n9z5g4zbmqrl9ksks16111p27ghjmj-brightnessctl-0.5.1/bin/brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id /nix/store/32n9z5g4zbmqrl9ksks16111p27ghjmj-brightnessctl-0.5.1/bin/brightnessctl set +5%
+
+mode "resize" {
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Escape mode default
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Return mode default
+  bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+}
+
+gaps inner 4
+gaps outer 6
+smart_borders on
+for_window [class="^Mpv$"] floating enable
+exec_always --no-startup-id ~/.config/i3/monitors.sh
+exec_always --no-startup-id systemctl --user restart picom
+exec_always --no-startup-id ~/.config/polybar/scripts/polybar.sh
+exec --no-startup-id ~/.config/i3/wallpaper.sh
+exec --no-startup-id dunst
+workspace "1" output "DP-0"
+workspace "2" output "DP-0"
+workspace "3" output "DP-0"
+workspace "4" output "DP-0"
+workspace "5" output "HDMI-0"
+workspace "6" output "HDMI-0"
+workspace "7" output "HDMI-0"
+workspace "8" output "HDMI-1"
+workspace "9" output "HDMI-1"
+workspace "10" output "DP-0"

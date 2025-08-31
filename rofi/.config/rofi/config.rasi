@@ -1,0 +1,6 @@
+configuration {
+location: 0;
+terminal: "/nix/store/85qv7isgnm0wny4qpvcql8wkqjv31wn4-kitty-0.42.2/bin/kitty";
+xoffset: 0;
+yoffset: 0;
+}

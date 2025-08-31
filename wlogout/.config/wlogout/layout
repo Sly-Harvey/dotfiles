@@ -1,0 +1,4 @@
+{"action":"hyprctl dispatch exit 0","keybind":"e","label":"logout","text":"Exit"}
+{"action":"systemctl poweroff","keybind":"s","label":"shutdown","text":"Shutdown"}
+{"action":"systemctl suspend","keybind":"u","label":"suspend","text":"Suspend"}
+{"action":"systemctl reboot","keybind":"r","label":"reboot","text":"Reboot"}

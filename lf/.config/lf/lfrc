@@ -1,0 +1,106 @@
+set nodrawbox
+set hidden
+set icons
+set ignorecase
+set preview
+
+cmd dragon-out %/nix/store/g6drig4wyq6ym6gnf2am59dpz24kl1d2-dragon-drop-1.2.0/bin/dragon-drop -a -x "$fx"
+cmd fzf ${{
+  res="$(find . | /nix/store/6a4wknif1z62kdn3cbkak78kyf462cxj-fzf-0.65.1/bin/fzf --reverse --header='Jump to location')"
+  if [ -n "$res" ]; then
+      if [ -d "$res" ]; then
+          cmd="cd"
+      else
+          cmd="select"
+      fi
+      res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+      lf -remote "send $id $cmd \"$res\""
+  fi
+}}
+
+cmd mkdir ${{
+    printf "Directory Name: "
+    read ans
+    mkdir $ans
+  }}
+
+cmd mkfile ${{
+    printf "File Name: "
+    read ans
+    touch $ans
+  }}
+
+cmd open-with-editor $$EDITOR $f
+cmd restore_trash ${{
+    /nix/store/9a959817yr68ip3nhlz1g77gcshcz28k-trash-cli-0.24.5.26/bin/trash-restore
+  }}
+
+cmd setwallpaper ${{
+    setwallpaper "$f"
+  }}
+
+cmd trash ${{
+  files=$(printf "$fx" | tr '\n' ';')
+  while [ "$files" ]; do
+    file=${files%%;*}
+
+    /nix/store/9a959817yr68ip3nhlz1g77gcshcz28k-trash-cli-0.24.5.26/bin/trash-put "$(basename "$file")"
+    if [ "$files" = "$file" ]; then
+      files=\'\'
+    else
+      files="${files#*;}"
+    fi
+  done
+}}
+
+cmd unarchive ${{
+    case "$f" in
+        *.zip) /nix/store/7m995l6pk7mkj79ijk6f3ghq591a6bg4-unzip-6.0/bin/unzip "$f" ;;
+        *.7z) /nix/store/pi6sy9c50rcl2h8dc8yxhbpc0nfv6lhb-p7zip-17.06/bin/7z x "$f" ;;
+        *.rar) /nix/store/fyykrasql10102k42842fqw4d0c9x28h-unrar-7.1.10/bin/unrar x "$f" ;;
+        *.tar) /nix/store/bpn20jn4235mij1372xvpmibgzzpqa3m-gnutar-1.35/bin/tar -xvf "$f" ;;
+        *.tar.xz|*.txz) /nix/store/bpn20jn4235mij1372xvpmibgzzpqa3m-gnutar-1.35/bin/tar xJvf $f;;
+        *.tar.gz|*.tgz) /nix/store/bpn20jn4235mij1372xvpmibgzzpqa3m-gnutar-1.35/bin/tar -xzvf "$f" ;;
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) /nix/store/bpn20jn4235mij1372xvpmibgzzpqa3m-gnutar-1.35/bin/tar -xjvf "$f" ;;
+        *) echo "Unsupported format" ;;
+    esac
+  }}
+
+
+map . set hidden!
+map <enter> $nvim $f
+map <space> toggle
+map C clear
+map R reload
+map ae $wine $f
+map au unarchive
+map c copy
+map d
+map dD delete
+map dd cut
+map do dragon-out
+map e open-with-editor
+map f fzf
+map gD cd ~/Documents
+map gc cd ~/.config
+map gd cd ~/Downloads
+map gg cd ~/git-clone
+map gn cd ~/NixOS
+map gp cd ~/Pictures
+map gt cd ~/.local/share/Trash/files
+map gv cd ~/Videos
+map m
+map md mkdir
+map mf mkfile
+map mo $chmod +x $f
+map p paste
+map x cut
+map y copy
+
+
+
+
+
+set cleaner /nix/store/gd123abn1y9i3x69cgfjzrxvqcvqgczv-clean.sh/bin/clean.sh
+set previewer /nix/store/pf43vdm4zg9xd26vll7p40q74kf5lcc8-pv.sh/bin/pv.sh
+

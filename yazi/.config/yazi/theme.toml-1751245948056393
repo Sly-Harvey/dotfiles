@@ -1,0 +1,6 @@
+[manager]
+border_symbol = " "
+
+[status]
+separator_close = ""
+separator_open = ""

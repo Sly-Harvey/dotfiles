@@ -1,0 +1,96 @@
+font:
+  normal:
+    family: JetBrainsMono NF Medium
+    style: Regular
+  bold:
+    family: JetBrainsMono NF Medium
+    style: Bold
+  italic:
+    family: JetBrainsMono NF Medium
+    style: Italic
+  bold_italic:
+    family: JetBrainsMono NF Medium
+    style: Bold Italic
+  size: 11.5 # 11.5
+draw_bold_text_with_bright_colors: true
+
+window:
+  decorations: none # change to 'full' to have window border back
+  dimensions:
+    columns: 100
+    lines: 30
+  opacity: 0.60
+  startup_mode: Windowed
+  padding:
+    x: 0
+    y: 0
+  #resize_increments: true
+  dynamic_padding: false
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+scrolling:
+  history: 10000
+  multiplier: 3
+  #import:
+  #  - ~/.config/alacritty/Dracula.yml
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: false
+
+shell:
+  program: /bin/zsh
+  #args:
+  #  - --command=tmux
+
+key_bindings:
+  - { key: F, mods: Control, chars: "cd $(find /mnt/seagate/dev/ ~/.config/ /usr/ ~/.local/ ~/ -mindepth 1 -maxdepth 2 | fzf)\u000D" }
+  - { key: Y, mods: Control, action: Paste }
+  - { key: W, mods: Alt, action: Copy }
+  - {
+      key: Return,
+      mods: Super|Shift,
+      action: SpawnNewInstance
+    }
+colors:
+  # Default colors
+  primary:
+    background: '0x1f1f28'
+    foreground: '0xdcd7ba'
+
+  # Normal colors
+  normal:
+    black: '0x090618'
+    red: '0xc34043'
+    green: '0x76946a'
+    yellow: '0xc0a36e'
+    blue: '0x7e9cd8'
+    magenta: '0x957fb8'
+    cyan: '0x6a9589'
+    white: '0xc8c093'
+
+  # Bright colors
+  bright:
+    black: '0x727169'
+    red: '0xe82424'
+    green: '0x98bb6c'
+    yellow: '0xe6c384'
+    blue: '0x7fb4ca'
+    magenta: '0x938aa9'
+    cyan: '0x7aa89f'
+    white: '0xdcd7ba'
+  selection:
+    background: '0x2d4f67'
+    foreground: '0xc8c093'
+
+  indexed_colors:
+    - { index: 16, color: '0xffa066' }
+    - { index: 17, color: '0xff5d62' }
+theme: Kanagawa
+
+# Values for `startup_mode`:
+#Windowed
+#Maximized
+#Fullscreen

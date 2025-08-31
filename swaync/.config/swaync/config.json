@@ -1,0 +1,177 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "control-center-height": 915,
+  "control-center-margin-bottom": 2,
+  "control-center-margin-left": 0,
+  "control-center-margin-right": 1,
+  "control-center-margin-top": 22,
+  "control-center-width": 400,
+  "cssPriority": "user",
+  "fit-to-screen": false,
+  "hide-on-action": true,
+  "hide-on-clear": false,
+  "image-visibility": "when-available",
+  "keyboard-shortcuts": true,
+  "notification-body-image-height": 128,
+  "notification-body-image-width": 200,
+  "notification-icon-size": 64,
+  "notification-visibility": {
+    "spotify": {
+      "app-name": "Spotify",
+      "state": "enabled",
+      "urgency": "Low"
+    },
+    "youtube-music": {
+      "app-name": "com.github.th_ch.youtube_music",
+      "state": "enabled",
+      "urgency": "Low"
+    }
+  },
+  "notification-window-width": 375,
+  "positionX": "right",
+  "positionY": "top",
+  "script-fail-notify": true,
+  "scripts": {
+    "example-script": {
+      "exec": "echo 'Do something...'",
+      "urgency": "Normal"
+    }
+  },
+  "timeout": 6,
+  "timeout-critical": 0,
+  "timeout-low": 3,
+  "transition-time": 200,
+  "widget-config": {
+    "buttons-grid": {
+      "actions": [
+        {
+          "command": "pamixer -t",
+          "label": "󰝟",
+          "type": "toggle",
+          "update-command": "sh -c 'pamixer --get-mute | grep -q true && echo true || echo false'"
+        },
+        {
+          "command": "pamixer --default-source -t",
+          "label": "󰍭",
+          "type": "toggle",
+          "update-command": "sh -c 'pamixer --get-mute --default-source | grep true && echo true || echo false'"
+        },
+        {
+          "command": "blueman-manager",
+          "label": "",
+          "type": "toggle",
+          "update-command": "sh -c 'bluetoothctl show | grep -q \\\"Powered: yes\\\" && echo true || echo false'"
+        },
+        {
+          "command": "sh -c '[ \"$SWAYNC_TOGGLE_STATE\" = true ] && nmcli radio wifi on || nmcli radio wifi off'",
+          "label": "󰤨",
+          "type": "toggle",
+          "update-command": "sh -c 'nmcli radio wifi | grep -q enabled && echo true || echo false'"
+        },
+        {
+          "command": "/nix/store/ds86kyxw6mcrnq8bcvaxnd1jdrw7gkp9-gamemode.sh",
+          "label": "🎮",
+          "type": "toggle",
+          "update-command": "hyprctl getoption animations:enabled | grep -q 'int: 1' && echo false || echo true"
+        },
+        {
+          "command": "sh -c '/nix/store/4adqchcd87rsayyjvxxb9ixjl5dm6926-procps-4.0.4/bin/pgrep -x hyprsunset >/dev/null && /nix/store/4adqchcd87rsayyjvxxb9ixjl5dm6926-procps-4.0.4/bin/pkill hyprsunset || nohup /nix/store/gmq6szkias4xb2sylxv93n4zsyw1jjs6-hyprsunset-0.3.2/bin/hyprsunset --temperature 3500 > /tmp/hyprsunset_output.log 2>&1 &'",
+          "label": "󰤄",
+          "type": "toggle",
+          "update-command": "sh -c 'pgrep -x hyprsunset >/dev/null && echo true || echo false'"
+        },
+        {
+          "command": "systemctl --user is-active --quiet hypridle.service && systemctl --user stop hypridle.service || systemctl --user start hypridle.service",
+          "label": "☕",
+          "type": "toggle",
+          "update-command": "pgrep -x hypridle > /dev/null && echo false || echo true"
+        },
+        {
+          "command": "/nix/store/m3m8lkav5jmdpkp6k4j795dnc392xc4r-TogglePowerMode.sh",
+          "label": "",
+          "type": "toggle",
+          "update-command": "test -f \"$HOME/.config/hypr/power_mode\" && grep -q \"^powersave$\" \"$HOME/.config/hypr/power_mode\" && echo true || echo false"
+        }
+      ]
+    },
+    "dnd": {
+      "text": " Do Not Disturb"
+    },
+    "label": {
+      "button-text": "",
+      "clear-all-button": true,
+      "text": "Notifications"
+    },
+    "menubar#desktop": {
+      "backlight": {
+        "label": "       󰃟  "
+      },
+      "menu#power": {
+        "actions": [
+          {
+            "command": "hyprlock",
+            "label": "   Lock"
+          },
+          {
+            "command": "hyprctl dispatch exit 0",
+            "label": "   Logout"
+          },
+          {
+            "command": "systemctl poweroff",
+            "label": "   Shut down"
+          },
+          {
+            "command": "systemctl suspend",
+            "label": "󰤄   Suspend"
+          },
+          {
+            "command": "systemctl reboot",
+            "label": "   Reboot"
+          }
+        ],
+        "label": "\t   Power Menu\t  ",
+        "position": "left"
+      },
+      "menu#screenshot": {
+        "actions": [
+          {
+            "command": "sh -c 'swaync-client -cp; sleep 1; grimblast copysave output \"/tmp/screenshot.png\"; swappy -f \"/tmp/screenshot.png\"'",
+            "label": "Whole screen"
+          },
+          {
+            "command": "sh -c 'swaync-client -cp; grimblast copysave area \"/tmp/screenshot.png\"; swappy -f \"/tmp/screenshot.png\"'",
+            "label": "Whole window / Select region"
+          }
+        ],
+        "label": "\t󰄀   Screenshot\t",
+        "position": "left"
+      }
+    },
+    "mpris": {
+      "image-radius": 4,
+      "image-size": 96
+    },
+    "title": {
+      "button-text": "",
+      "clear-all-button": true,
+      "text": " Quick settings"
+    },
+    "volume": {
+      "collapse-button-label": "",
+      "expand-button-label": "",
+      "label": "",
+      "show-per-app": true,
+      "show-per-app-icon": true,
+      "show-per-app-label": true
+    }
+  },
+  "widgets": [
+    "title",
+    "dnd",
+    "menubar#desktop",
+    "volume",
+    "mpris",
+    "notifications",
+    "buttons-grid"
+  ]
+}

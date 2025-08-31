@@ -1,0 +1,8 @@
+[Unit]
+Description=Set power limit 5 seconds after boot
+
+[Timer]
+OnBootSec=5
+
+[Install]
+WantedBy=timers.target

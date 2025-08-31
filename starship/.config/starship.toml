@@ -1,0 +1,148 @@
+add_newline = false
+format = "$username$hostname$directory$git_branch$git_state$git_status$cmd_duration$python$nix_shell$character"
+scan_timeout = 10
+
+[aws]
+symbol = "aws "
+
+[azure]
+symbol = "az "
+
+[bun]
+symbol = "bun "
+
+[character]
+error_symbol = "[❯](red)"
+success_symbol = "[❯](purple)"
+vimcmd_symbol = "[❮](green)"
+
+[cmake]
+symbol = "cmake "
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
+
+[deno]
+symbol = "deno "
+
+[directory]
+read_only = " ro"
+style = "blue"
+
+[docker_context]
+symbol = "docker "
+
+[git_branch]
+format = "[$branch]($style)"
+style = "bright-black"
+symbol = "git "
+
+[git_state]
+format = "\\([$state( $progress_current/$progress_total)]($style)\\) "
+style = "bright-black"
+
+[git_status]
+conflicted = "​"
+deleted = "​"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+modified = "​"
+renamed = "​"
+staged = "​"
+stashed = "≡"
+style = "cyan"
+untracked = "​"
+
+[golang]
+symbol = "go "
+
+[lua]
+symbol = "lua "
+
+[memory_usage]
+symbol = "memory "
+
+[nim]
+symbol = "nim "
+
+[nix_shell]
+format = "[$symbol]($style)"
+symbol = "❄️ "
+
+[nodejs]
+symbol = "nodejs "
+
+[os.symbols]
+Alpaquita = "alq "
+Alpine = "alp "
+Amazon = "amz "
+Android = "andr "
+Arch = "rch "
+Artix = "atx "
+CentOS = "cent "
+Debian = "deb "
+DragonFly = "dfbsd "
+Emscripten = "emsc "
+EndeavourOS = "ndev "
+Fedora = "fed "
+FreeBSD = "fbsd "
+Garuda = "garu "
+Gentoo = "gent "
+HardenedBSD = "hbsd "
+Illumos = "lum "
+Linux = "lnx "
+Mabox = "mbox "
+Macos = "mac "
+Manjaro = "mjo "
+Mariner = "mrn "
+MidnightBSD = "mid "
+Mint = "mint "
+NetBSD = "nbsd "
+NixOS = "nix "
+OpenBSD = "obsd "
+OpenCloudOS = "ocos "
+OracleLinux = "orac "
+Pop = "pop "
+Raspbian = "rasp "
+RedHatEnterprise = "rhel "
+Redhat = "rhl "
+Redox = "redox "
+SUSE = "suse "
+Solus = "sol "
+Ubuntu = "ubnt "
+Unknown = "unk "
+Windows = "win "
+openEuler = "oeul "
+openSUSE = "osuse "
+
+[package]
+symbol = "pkg "
+
+[purescript]
+symbol = "purs "
+
+[python]
+format = "[$virtualenv]($style) "
+style = "bright-black"
+symbol = "py "
+
+[rust]
+symbol = "rs "
+
+[shell]
+bash_indicator = ""
+disabled = false
+powershell_indicator = ""
+style = "cyan"
+
+[status]
+symbol = "[x](bold red) "
+
+[sudo]
+symbol = "sudo "
+
+[terraform]
+symbol = "terraform "
+
+[zig]
+symbol = "zig "

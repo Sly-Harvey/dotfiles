@@ -1,0 +1,2 @@
+UUID=01DA12C1CBDE9100 /mnt/games ntfs-3g rw,uid=1000,gid=100,noatime,umask=000,nofail,x-gvfs-show,x-systemd.mount-timeout=5 0 2
+UUID=f6f6d68c-68f8-4c50-8155-105a22b9ff35 /mnt/work ext4 defaults,async,nofail,x-gvfs-show,x-systemd.mount-timeout=5,X-mount.mkdir 0 2
