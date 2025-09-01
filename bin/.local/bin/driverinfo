@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+vulkaninfo | grep -i "deviceName\|driverID"

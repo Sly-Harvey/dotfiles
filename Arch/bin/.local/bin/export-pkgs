@@ -1,5 +1,0 @@
-pushd ~/.dotfiles/ &> /dev/null
-rm ./pkgs/arch_packages_list.txt &> /dev/null
-pacman -Qe | awk '{print $1}' > ./pkgs/arch_packages_list.txt
-echo "Packages exported to ~/.dotfiles/pkgs/arch_packages_list.txt"
-popd &> /dev/null

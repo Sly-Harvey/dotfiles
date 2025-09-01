@@ -69,13 +69,13 @@
           "update-command": "sh -c 'nmcli radio wifi | grep -q enabled && echo true || echo false'"
         },
         {
-          "command": "/nix/store/ds86kyxw6mcrnq8bcvaxnd1jdrw7gkp9-gamemode.sh",
+          "command": "~/.config/hypr/scripts/gamemode.sh",
           "label": "🎮",
           "type": "toggle",
           "update-command": "hyprctl getoption animations:enabled | grep -q 'int: 1' && echo false || echo true"
         },
         {
-          "command": "sh -c '/nix/store/4adqchcd87rsayyjvxxb9ixjl5dm6926-procps-4.0.4/bin/pgrep -x hyprsunset >/dev/null && /nix/store/4adqchcd87rsayyjvxxb9ixjl5dm6926-procps-4.0.4/bin/pkill hyprsunset || nohup /nix/store/gmq6szkias4xb2sylxv93n4zsyw1jjs6-hyprsunset-0.3.2/bin/hyprsunset --temperature 3500 > /tmp/hyprsunset_output.log 2>&1 &'",
+          "command": "sh -c 'pgrep -x hyprsunset >/dev/null && pkill hyprsunset || nohup hyprsunset --temperature 3500 > /tmp/hyprsunset_output.log 2>&1 &'",
           "label": "󰤄",
           "type": "toggle",
           "update-command": "sh -c 'pgrep -x hyprsunset >/dev/null && echo true || echo false'"
@@ -87,7 +87,7 @@
           "update-command": "pgrep -x hypridle > /dev/null && echo false || echo true"
         },
         {
-          "command": "/nix/store/m3m8lkav5jmdpkp6k4j795dnc392xc4r-TogglePowerMode.sh",
+          "command": "~/.config/hypr/scripts/TogglePowerMode.sh",
           "label": "",
           "type": "toggle",
           "update-command": "test -f \"$HOME/.config/hypr/power_mode\" && grep -q \"^powersave$\" \"$HOME/.config/hypr/power_mode\" && echo true || echo false"

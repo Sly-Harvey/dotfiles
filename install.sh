@@ -30,10 +30,10 @@ else
 fi
 
 # Execute Arch package installation if on Arch-based system
-if [ "$isArch" = true ] && [ -f "pkgs/install.sh" ]; then
-    echo "Detected Arch-based system. Running package installation..."
-    bash pkgs/install.sh
-fi
+# if [ "$isArch" = true ] && [ -f "install-packages.sh" ]; then
+#     echo "Detected Arch-based system. Running package installation..."
+#     ./install-packages.sh
+# fi
 
 if ! command -v stow &> /dev/null; then
     $install "stow"
@@ -41,7 +41,7 @@ fi
 
 # sddm theme
 sudo cp -r ./sddm/sddm-astronaut-theme /usr/share/sddm/themes/
-sudo cp ./sddm/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
+sudo cp -r ./sddm/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
 echo "[Theme]
 Current=sddm-astronaut-theme" | sudo tee /etc/sddm.conf
 
@@ -51,16 +51,12 @@ set -e
 # TODO: review swappy config
 # TODO: add: bin
 DOT_FOLDERS="
+    bin
     home
-    btop
-    cava
-    gtk-3.0
-    gtk-4.0
     hypr
+    themes
     i3
-    icons
     kitty
-    Kvantum
     lazygit
     MangoHud
     mpv
@@ -70,7 +66,6 @@ DOT_FOLDERS="
     starship
     swappy
     swaync
-    Thunar
     tmux
     wallpapers
     waybar
@@ -78,6 +73,10 @@ DOT_FOLDERS="
     yazi
     zsh
 "
+
+if [ ! -L "$HOME/.config/hypr/hyprland.conf" ]; then
+   rm -f "$HOME/.config/hypr/hyprland.conf"
+fi
 
 for folder in $DOT_FOLDERS; do
     [ -z "$folder" ] && continue
@@ -89,6 +88,13 @@ for folder in $DOT_FOLDERS; do
     stow -t $HOME $folder -v \
         2> >(grep -v 'BUG in find_stowed_path? Absolute/relative mismatch' 1>&2)
 done
+
+# Set catppuccin theme
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Mocha-Mauve'
+
+chsh -s $(grep /zsh$ /etc/shells | tail -1)
 
 # Reload shell once installed
 echo "Reloading shell..."

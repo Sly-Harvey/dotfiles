@@ -1,7 +1,7 @@
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["e"]
 run = "open"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["d"]
 run = "remove --force"
