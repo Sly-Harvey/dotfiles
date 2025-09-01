@@ -10,3 +10,12 @@
 [submodule "nvim/.config/nvim"]
 	path = nvim/.config/nvim
 	url = https://github.com/Sly-Harvey/nvim.git
+[submodule "tmux/.config/tmux/plugins/catppuccin-tmux"]
+	path = tmux/.config/tmux/plugins/catppuccin-tmux
+	url = https://github.com/dreamsofcode-io/catppuccin-tmux
+[submodule "tmux/.config/tmux/plugins/tmux-sensible"]
+	path = tmux/.config/tmux/plugins/tmux-sensible
+	url = https://github.com/tmux-plugins/tmux-sensible
+[submodule "tmux/.config/tmux/plugins/vim-tmux-navigator"]
+	path = tmux/.config/tmux/plugins/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator
