@@ -55,7 +55,6 @@ DOT_FOLDERS="
     home
     hypr
     themes
-    i3
     kitty
     lazygit
     MangoHud
@@ -88,6 +87,9 @@ for folder in $DOT_FOLDERS; do
     stow -t $HOME $folder -v \
         2> >(grep -v 'BUG in find_stowed_path? Absolute/relative mismatch' 1>&2)
 done
+
+sudo sed -i -e 's/^#BottomUp/BottomUp/' /etc/paru.conf
+sudo sed -i -e 's/^#Color/Color/' /etc/pacman.conf
 
 # Set catppuccin theme
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
