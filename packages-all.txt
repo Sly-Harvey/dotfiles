@@ -39,6 +39,7 @@ jfsutils
 jq
 kvantum
 kvantum-theme-catppuccin-git
+kvantum-qt5
 lazygit
 less
 yazi
@@ -82,6 +83,9 @@ power-profiles-daemon
 python
 python-pywal
 python-requests
+qt5ct
+qt6ct
+qt6-multimedia
 reflector
 reflector-simple
 ripgrep
