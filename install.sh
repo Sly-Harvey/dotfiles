@@ -52,6 +52,7 @@ set -e
 # TODO: add: bin
 DOT_FOLDERS="
     bin
+    cava
     home
     hypr
     themes

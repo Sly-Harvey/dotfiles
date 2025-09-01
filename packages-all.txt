@@ -25,6 +25,7 @@ github-cli
 github-desktop-bin
 gnome-system-monitor
 grim
+grimblast-git
 grub-customizer
 gtk-engine-murrine
 hwdetect
