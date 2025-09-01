@@ -47,7 +47,7 @@ Current=sddm-astronaut-theme" | sudo tee /etc/sddm.conf
 
 set -e
 # SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-# DOT_FOLDERS="bin,home,alacritty,btop,cava,gtk-3.0,gtk-4.0,hypr,i3,icons,kitty,Kvantum,lazygit,lf,MangoHud,mpv,neofetch,picom,rofi,starship,swappy,swaync,Thunar,tmux,waybar,wezterm,wlogout,yazi,zsh"
+# DOT_FOLDERS="bin,home,alacritty,btop,cava,hypr,i3,icons,kitty,Kvantum,lazygit,lf,MangoHud,mpv,neofetch,picom,rofi,starship,swappy,swaync,tmux,waybar,wezterm,wlogout,yazi,zsh"
 # TODO: review swappy config
 # TODO: add: bin
 DOT_FOLDERS="

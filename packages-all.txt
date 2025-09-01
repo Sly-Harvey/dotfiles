@@ -58,6 +58,7 @@ nano
 nano-syntax-highlighting
 neofetch
 neovim
+nautilus
 netctl
 noto-fonts
 noto-fonts-cjk
@@ -93,9 +94,6 @@ starship
 stow
 swappy
 swaync
-thunar
-thunar-archive-plugin
-thunar-volman
 tldr
 tmux
 ttf-dejavu
