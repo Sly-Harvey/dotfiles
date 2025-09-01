@@ -92,7 +92,7 @@ ripgrep
 rofi-wayland
 rofi-emoji
 rofi-games
-sddm-git
+sddm
 slurp
 starship
 stow
