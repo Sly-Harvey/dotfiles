@@ -40,6 +40,7 @@ jq
 kvantum
 kvantum-theme-catppuccin-git
 kvantum-qt5
+lact
 lazygit
 less
 yazi

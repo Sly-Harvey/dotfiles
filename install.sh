@@ -34,6 +34,10 @@ fi
 #     echo "Detected Arch-based system. Running package installation..."
 #     ./install-packages.sh
 # fi
+#
+if command -v lact &> /dev/null; then
+    sudo systemctl enable --now lactd
+fi
 
 if ! command -v stow &> /dev/null; then
     $install "stow"
